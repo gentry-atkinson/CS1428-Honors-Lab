@@ -1,3 +1,8 @@
+//Gentry Atkinson
+//CS1428 Fall 2018
+//Lab 0
+
+
 #include <iostream>
 
 using namespace std;
