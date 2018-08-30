@@ -31,6 +31,9 @@ int main () {
     cout << "Volume of Sphere = " << (4.0 / 3.0) * pi * 8 << endl;
     cout << "Years since last leap year = " << thisYear % 4 << endl;
 
+    myFirstInt = 357;
+    cout << "First digit: " << myFirstInt / 100 << " Second digit: " << (myFirstInt / 10) % 10 << " Third digit: " << myFirstInt % 10 << endl;
+
     return 0;
 }
 
