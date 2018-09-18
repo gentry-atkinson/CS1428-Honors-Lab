@@ -102,6 +102,6 @@ int main() {
 
 
     //Problem 8
-    cout << 50 << endl;
+    cout << 45 << endl;
     return 0;
 }
