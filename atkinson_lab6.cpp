@@ -48,7 +48,7 @@ int main() {
         //9. IF THE VALUE IN data AT THIS INDEX IS SMALLER THAN min,
     //UPDATE min
         if (temp < minViews) minViews = temp;
-        cout << temp << endl;
+        //cout << temp << endl;
     //10. EXIT LOOP
     }
     //11. WRITE max AND min INTO THE OUTPUT FILE WITH AN APPROPRIATE LABEL
@@ -63,8 +63,8 @@ int main() {
         else if (data[i] < data[i-1]) decCounter++;
     }
 
-    cout << "Inc: " << incCounter << endl;
-    cout << "Dec: " << decCounter << endl;
+    //cout << "Inc: " << incCounter << endl;
+    //cout << "Dec: " << decCounter << endl;
 
     if (incCounter > decCounter) outFile << "This data is generally increasing." << endl;
     else if (incCounter < decCounter) outFile << "This data is generally decreasing." << endl;
@@ -74,8 +74,9 @@ int main() {
     float yIntercept = data[0] - slope;
     float sumOfErrors = 0.0;
     for (int i = 0; i < setSize; i++){
+        //cout << "Predicted value: " << (i * slope + yIntercept);
+        //cout << "\tActual value: " << data[i] << endl;
         sumOfErrors += (i * slope + yIntercept) - data[i];
-        cout << sumOfErrors << endl;
     }
     outFile << "Slope from linear regression: " << slope << endl;
     outFile << "Y Intercept from linear regression: " << yIntercept << endl;
