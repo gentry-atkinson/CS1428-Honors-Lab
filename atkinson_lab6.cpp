@@ -26,6 +26,8 @@ int main() {
         counter++;
     }
 
+
+
     //1. DECLARE ANOTHER FILESTREAM TO HANDLE YOUR PROGRAMS OUTPUT
     fstream outFile;
     //2. OPEN FOR OUTPUT THE FILESTREAM WITH THE FILENAME “lab6_output.txt”
@@ -56,28 +58,49 @@ int main() {
     outFile << "Max views in one day: " << maxViews << endl;
     outFile << "Min views in one day: " << minViews << endl;
 
+
+
+
+    //declare and initialize counters
     int incCounter=0, decCounter=0;
 
+    //count through every index of data
     for (int i = 1; i < setSize; i++){
+        //if larger index has larger value, increment increasing counter
         if (data[i] > data[i-1]) incCounter++;
+        //if larger index has smaller value, increment decreasing counter
         else if (data[i] < data[i-1]) decCounter++;
+        //no default action
     }
 
+    /****************These two lines are for debugging**************/
     //cout << "Inc: " << incCounter << endl;
     //cout << "Dec: " << decCounter << endl;
 
+    //decide which counter is bigger and write the result to file
     if (incCounter > decCounter) outFile << "This data is generally increasing." << endl;
     else if (incCounter < decCounter) outFile << "This data is generally decreasing." << endl;
     else outFile << "This set neither increases nor decreases" << endl;
 
+
+
+
+    //1. DECLARE VARIABLES OF AN APPROPRIATE TYPE TO HOLD THE SLOPE,
+    //Y-INTERCEPT, AND SUM OF ERRORS
+    //2. ASSIGN SLOPE VALUE EQUAL TO maxViews - minViews OVER setSize
     float slope = (maxViews - minViews)/ static_cast<float>(setSize);
+    //3. USE THE SLOPE AND data[0] TO CALCULATE THE Y-INTERCEPT
     float yIntercept = data[0] - slope;
     float sumOfErrors = 0.0;
+    //4. ENTER A LOOP WHICH WILL COUNT THROUGH ALL INDEXES OF data
     for (int i = 0; i < setSize; i++){
-        //cout << "Predicted value: " << (i * slope + yIntercept);
-        //cout << "\tActual value: " << data[i] << endl;
+        //5. CALCULATE THE DIFFERENCE BETWEEN slope*i + y-intercept AND data[i]
+        //6. ADD THIS NUMBER INTO YOUR SUM OR ERRORS.
         sumOfErrors += (i * slope + yIntercept) - data[i];
-    }
+    } //5. END LOOP
+
+    //6. WRITE THE SLOPE, Y-INTERCEPT, AND SUM OF ERRORS INTO THE OUTPUT
+    //FILE WITH APPROPRIATE LABELS.
     outFile << "Slope from linear regression: " << slope << endl;
     outFile << "Y Intercept from linear regression: " << yIntercept << endl;
     outFile << "Sum of errors: " << sumOfErrors << endl;
