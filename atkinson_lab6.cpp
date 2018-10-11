@@ -105,6 +105,9 @@ int main() {
     outFile << "Y Intercept from linear regression: " << yIntercept << endl;
     outFile << "Sum of errors: " << sumOfErrors << endl;
 
+    outFile.close();
+    dataFile.close();
+
     return 0;
 }
 
