@@ -14,7 +14,7 @@ int main () {
     int cipherChar;
     int shift = 5;
 
-    plainText.open("lab8_plain_text.txt");
+    plainText.open("lab8_original_text.txt");
     cipherText.open("lab8_cipherText.txt");
 
     while(!plainText.eof()){
