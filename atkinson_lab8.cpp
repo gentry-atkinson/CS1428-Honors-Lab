@@ -36,7 +36,7 @@ int main() {
 
     while (!inFile.eof()){
         inFile >> input;
-        input += (26 + shift);
+        input += shift;
         input %= 26;
         //cout << input << " : ";
         //cout << static_cast<char>(input + 'A') << endl;
@@ -45,6 +45,8 @@ int main() {
 
     cout << "John Donne" << endl;
 
+    inFile.close();
+    outFile.close();
     return 0;
 }
 
@@ -61,7 +63,7 @@ bool countIntegers(ifstream file, int * countArray){
 
 bool countIntegers(char * fileName, int * countArray){
     ifstream file;
-    file.open(fileName);
+    file.open(fileName, fstream::in);
     //return countIntegers(file, countArray);
 
     int input;
@@ -85,5 +87,5 @@ int findMostCommon(int * countArray, int size){
 }
 
 int determineShift(int mostFrequent) {
-    return -1 * (mostFrequent - 4);
+    return 26 - (mostFrequent - 4);
 }
