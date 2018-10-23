@@ -16,20 +16,34 @@ int determineShift(int mostFrequent);
 
 int main() {
     int countArray[26];
-    int mostFrequent;
+    int mostFrequent, input, shift, mostFreqIndex;
     ofstream outFile;
     ifstream inFile;
-    int input;
-    int shift;
+
+    for(int i = 0; i < 26; i++)
+        countArray[i] = 0;
 
     countIntegers("lab8_cipherText.txt", countArray);
-    shift = determineShift(findMostCommon(countArray, 26));
+    mostFreqIndex = findMostCommon(countArray, 26);
+    shift = determineShift(mostFreqIndex);
+
+    //cout << mostFreqIndex << endl;
+    //cout << shift << endl;
+
+    outFile.open("lab8_plainText.txt");
+    inFile.open("lab8_cipherText.txt");
+
 
     while (!inFile.eof()){
         inFile >> input;
-        input += shift;
+        input += (26 + shift);
+        input %= 26;
+        //cout << input << " : ";
+        //cout << static_cast<char>(input + 'A') << endl;
         outFile << static_cast<char>(input + 'A');
     }
+
+    cout << "John Donne" << endl;
 
     return 0;
 }
@@ -39,6 +53,7 @@ bool countIntegers(ifstream file, int * countArray){
     if (!file.is_open()) return false;
     while (!file.eof()){
         file >> input;
+        //cout << input << endl;
         countArray[input]++;
     }
     return true;
@@ -47,15 +62,16 @@ bool countIntegers(ifstream file, int * countArray){
 bool countIntegers(char * fileName, int * countArray){
     ifstream file;
     file.open(fileName);
-    file.close();
     //return countIntegers(file, countArray);
 
     int input;
     if (!file.is_open()) return false;
     while (!file.eof()){
         file >> input;
+        //cout << input << endl;
         countArray[input]++;
     }
+    file.close();
     return true;
 }
 
