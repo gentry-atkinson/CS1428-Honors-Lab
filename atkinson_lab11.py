@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #! python
 
 phrase = "This is lab 11."
