@@ -13,6 +13,7 @@ class Material
         float getAvgMelt();
         float getAvgBreak();
         void reset();
+        bool willBreak(float);
 
     private:
         //Holds the results of 5 melting tests

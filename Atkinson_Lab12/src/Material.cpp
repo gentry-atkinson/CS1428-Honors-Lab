@@ -71,3 +71,9 @@ void Material::reset(){
     breakPointer = 0;
     return;
 }
+
+bool Material::willBreak(float input){
+    for (int i = 0; i < breakPointer; i++)
+        if (breaking[i] < input) return true;
+    return false;
+}

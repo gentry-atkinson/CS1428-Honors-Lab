@@ -34,10 +34,19 @@ int main()
 
     cout << "The average melting point of Gentrynium is " << gentrynium.getAvgMelt() << endl;
     cout << "The average breaking point of Gentrynium is " << gentrynium.getAvgBreak() << endl;
+    cout << "Gentrynium will ";
+    if (!gentrynium.willBreak(43)) cout << "not ";
+    cout << "break under a load of 43kN." << endl;
     cout << "The average melting point of Wonderfonium is " << wonderfonium.getAvgMelt() << endl;
     cout << "The average breaking point of Wonderfonium is " << wonderfonium.getAvgBreak() << endl;
+    cout << "Wonderfonium will ";
+    if (!wonderfonium.willBreak(43)) cout << "not ";
+    cout << "break under a load of 43kN."<< endl;
     cout << "The average melting point of Turingite is " << turingite.getAvgMelt() << endl;
     cout << "The average breaking point of Turingite is " << turingite.getAvgBreak() << endl;
+    cout << "Turingite will ";
+    if (!turingite.willBreak(43)) cout << "not ";
+    cout << "break under a load of 43kN."<< endl;
 
     return 0;
 }
