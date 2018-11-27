@@ -16,10 +16,10 @@ class Material
 
     private:
         //Holds the results of 5 melting tests
-        float melting[5];
+        float melting[3];
 
         //Holds the results of 5 breaking tests
-        float breaking[5];
+        float breaking[3];
 
         //Pointer to the melt and break array
         //Should be the index of the next position to write
