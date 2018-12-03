@@ -8,7 +8,7 @@ using namespace std;
 
 bool exists(const char *filename){
     ifstream ifile(filename);
-    return ifile;
+    return ifile.good();
 }
 
 SecretNumber::SecretNumber()
