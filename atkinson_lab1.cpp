@@ -1,4 +1,4 @@
-//Your Name
+//Gentry Atkinson
 //CS1428 Fall 2019
 //Lab 1
 
