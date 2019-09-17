@@ -41,14 +41,16 @@ int main() {
         x /= 2;
     }
 
+    cout << endl << endl;
+
     //Starting problem 6
     float a, b, c; //values to hold the lengths of three triangle legs.
     float aSquare, bSquare, cSquare;
-    char continueLooping = 't'; //user input to continue
+    char continueLooping = 'y'; //user input to continue
 
-    while(continueLooping == 't'){
+    while(continueLooping == 'y' || continueLooping == 'Y'){
         //take user input of segment lengths
-        cout << "Please enter 3 segment lengths:"
+        cout << "Please enter lengths a, b, then c: ";
         cin >> a >> b >> c;
 
         //calculate squares
