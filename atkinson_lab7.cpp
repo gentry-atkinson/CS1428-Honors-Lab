@@ -17,7 +17,7 @@ int main () {
     int playerScore = 0, computerScore = 0; //start both with 0 score
     char anotherRound = 'y'; //var to track game end
 
-    srand(time(NULL));
+    srand(time(NULL)); //seed the rand function
 
     cout << "Let's Play Rock, Paper, Scissor!!!" << endl;
     cout << "----------------------------------" << endl;
@@ -54,18 +54,54 @@ int main () {
     // 'P' for paper
     // 'S' for scissor
 char pickPlayerMove(){
-    //fill in function body
+    char choice;
+    do {
+        cout << "Choose (R) for Rock, (P) for Paper or (S) for Scissor: ";
+        cin >> choice;
+    }while(choice != 'R' && choice != 'P' && choice != 'S');
+    return choice;
 }
 
 
 /****************************************************/
 //Pick Computer Move
 //Randomly decide a move for the computer. Should never be the same as the player's
-//Print the computer's chioce
 //Must return 'R', 'P', or 'S'
 char pickComputerMove(char playerMove){
     //use rand() to choose the computer's move
     //use a loop to ensure that the computer's move is never the same as the player's
+    int choice = rand() % 2;
+    //cout << choice << endl;
+    if (playerMove == 'R'){
+        switch(choice){
+            case 0:
+                cout << "I choose Paper" << endl;
+                return 'P';
+            case 1:
+            cout << "I choose Scissors" << endl;
+                return 'S';
+        }
+    }
+    else if (playerMove == 'P'){
+        switch(choice){
+            case 0:
+                cout << "I choose Rock" << endl;
+                return 'R';
+            case 1:
+                cout << "I choose Scissors" << endl;
+                return 'S';
+        }
+    }
+    else {
+        switch(choice){
+            case 0:
+                cout << "I choose Rock" << endl;
+                return 'R';
+            case 1:
+                cout << "I choose Paper" << endl;
+                return 'P';
+        }
+    }
 }
 
 
@@ -75,17 +111,31 @@ char pickComputerMove(char playerMove){
     //Rock 'R' beats Scissors 'S'
     //Scissors 'S' beat Paper 'P'
     //Paper 'P' beats Rock 'R;
-//Print "I win" if the computer wins. Print "You win" if the player wins
 //Must return:
     //'P' for player wins
     //'C' for computer wins
 char decideWinner(char playerMove, char computerMove){
     //fill in the function body
+    if (playerMove == 'R'){
+        if (computerMove == 'P') return 'C';
+        else return 'P';
+    }
+    else if (playerMove == 'P'){
+        if (computerMove == 'S') return 'C';
+        else return 'P';
+    }
+    else{
+        if (computerMove == 'R') return 'C';
+        else return 'P';
+    }
 }
 
 /****************************************************/
 //Print Score
 //Print the score of the game with NICE FORMATTING
 void printScore(int playerScore, int computerScore){
-    //fill in function body
+    cout << endl << "---------------------------------" << endl;
+    cout << " Player: " << playerScore << " | Computer: " << computerScore << endl;
+    cout << "---------------------------------" << endl;
+    return;
 }
