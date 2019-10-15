@@ -17,7 +17,7 @@ int main () {
     int playerScore = 0, computerScore = 0; //start both with 0 score
     char anotherRound = 'y'; //var to track game end
 
-    srand(time(NULL)); //seed the rand function
+    srand(time(NULL));
 
     cout << "Let's Play Rock, Paper, Scissor!!!" << endl;
     cout << "----------------------------------" << endl;
@@ -30,14 +30,13 @@ int main () {
         char playerMove = pickPlayerMove();
         char computerMove = pickComputerMove(playerMove);
 
-        switch(decideWinner(playerMove, computerMove)){
-            case 'P':
-                playerScore++;
-                break;
-            case 'C':
-                computerScore++;
-                break;
+        if(decideWinner(computerMove, playerMove) == 'C'){
+            computerScore++;
         }
+        else{
+            playerScore++;
+        }
+
         do{
             cout << "Play another round? (y/n)";
             cin >> anotherRound;
@@ -114,7 +113,7 @@ char pickComputerMove(char playerMove){
 //Must return:
     //'P' for player wins
     //'C' for computer wins
-char decideWinner(char playerMove, char computerMove){
+char decideWinner(char computerMove, char playerMove){
     //fill in the function body
     if (playerMove == 'R'){
         if (computerMove == 'P') return 'C';
