@@ -25,28 +25,41 @@ float calculateAuthorPay(int, int, const float);
 
 int main(){
     //Task 1: declare an input filestream and name it "submission"
+    ifstream submission;
 
     //Task 2: use openSubmission to open "submission" to read a file named "lab8_submission.txt"
+    openSubmission(submission, "lab8_submission.txt");
 
     //Task 3: create an array of strings called submissionWords with size = [STORY_SIZE]
+    string submissionWords[STORY_SIZE];
 
     //Task 3: use loadStringArray to load all of the words from "lab8_submission.txt
         //into submissionWords
+    int numWords = loadStringArray(submission, submissionWords);
 
     //Task 4: this publishers has noticed that this author often misspells taste as taset,
         // eyes as eys, light as lihgt, and wine as winne. Create an array called
         // commonMisspellings with the values "taset", "eys", "lihgt", and "winne".
+    string commonMisspellings[] = {"taset", "eys", "lihgt", "winne"};
 
     //Task 5: use the coutMisspellings function with the submissionWords array and
         // the commonMisspellings array to count the misspellings in this story.
+    int numMisspellings = countMisspellings(submissionWords, commonMisspellings, numWords, 4);
 
     //Task 6: this publishers pays $0.17 per correctly spelled word and charges a
         //penalty for misspellings. Create a constant to hold the rate and the pass it
         //to calculateAuthorPay with the word and misspelling count to calculate this
         //author's pay
+    const float rate = 0.17;
+    float authorPay = calculateAuthorPay(numWords, numMisspellings, rate);
 
     //Task7: print the total words, correctly spelled words, misspelled words, and
         // author pay to the console with NEAT FORMATTING
+    cout << "---Story Processed---" << endl;
+    cout << "Total words: " << numWords << endl;
+    cout << "Correct words: " << numWords - numMisspellings << endl;
+    cout << "Misspellings: " << numMisspellings << endl;
+    cout << "Author Pay: $" << authorPay << endl;
     return 0;
 }
 
