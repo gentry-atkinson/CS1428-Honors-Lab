@@ -18,7 +18,7 @@ using namespace std;
 
 const int STORY_SIZE = 3000;
 
-void openSubmission(ifstream&, string);
+void openSubmission(ifstream&, char*);
 int loadStringArray(ifstream&, string[]);
 int countMisspellings(string[], string[], int, int);
 float calculateAuthorPay(int, int, const float);
@@ -56,7 +56,7 @@ Input: an unopened file stream and a file name.
 Returns: nothing
 Side Effects: the file stream is opened with the file name.
 ***********************************/
-void openSubmission(ifstream& submission, string filename){
+void openSubmission(ifstream& submission, char* filename){
     submission.open(filename);
     return;
 }

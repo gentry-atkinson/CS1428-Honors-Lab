@@ -30,11 +30,11 @@ int main () {
         char playerMove = pickPlayerMove();
         char computerMove = pickComputerMove(playerMove);
 
-        if(decideWinner(computerMove, playerMove) == 'C'){
-            computerScore++;
+        if(decideWinner(computerMove, playerMove) == 'P'){
+            playerScore++;
         }
         else{
-            playerScore++;
+            computerScore++;
         }
 
         do{
