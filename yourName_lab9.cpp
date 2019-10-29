@@ -33,8 +33,8 @@ int main(){
     cout << "A) labrador" << endl;
     cout << "B) terrier" << endl;
     cout << "C) retriever" << endl;
-    cout << "D) mastiff";
-    caloriesPerDay = getCaloriesForBreed('B');
+    cout << "D) mastiff" << endl;
+    caloriesPerDay = getCaloriesForBreed('b');
     cout << "Enter a meal size: " << endl;
     caloriesPerDay = remainingCalories(200, caloriesPerDay);
     cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl << endl;
@@ -42,13 +42,14 @@ int main(){
     cout << "------------------UI Test 3-------------------" << endl;
     cout << "Enter a breed to calculate calories/day: " << endl;
     caloriesPerDay = getCaloriesForBreed("corgie");
+    cout << endl;
 
     cout << "------------------UI Test 4-------------------" << endl;
     cout << "Enter a breed to predicted calories/day: " << endl;
     caloriesPerDay = getCaloriesForBreed(500, "terrier");
     cout << "Enter a meal and # of cups: " << endl;
     caloriesPerDay = remainingCalories("wet", 2.0, caloriesPerDay);
-    cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl;
+    cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl << endl;
 
     cout << "------------------UI Test 5-------------------" << endl;
     cout << "Enter a food type: " << endl;
@@ -58,6 +59,7 @@ int main(){
     else{
         cout << "Cheese is not safe for your pupper." << endl;
     }
+    cout << endl;
 
     cout << "------------------UI Test 6-------------------" << endl;
     cout << "Select a food type: " << endl;
@@ -71,6 +73,7 @@ int main(){
     else{
         cout << "Citrus is not safe for your pupper." << endl  << endl;
     }
+    cout << endl;
 
     cout << "Thank you for using DogDiet." << endl;
     return 0;

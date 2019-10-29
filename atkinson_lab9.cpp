@@ -33,8 +33,8 @@ int main(){
     cout << "A) labrador" << endl;
     cout << "B) terrier" << endl;
     cout << "C) retriever" << endl;
-    cout << "D) mastiff";
-    caloriesPerDay = getCaloriesForBreed('B');
+    cout << "D) mastiff" << endl;
+    caloriesPerDay = getCaloriesForBreed('b');
     cout << "Enter a meal size: " << endl;
     caloriesPerDay = remainingCalories(200.0, caloriesPerDay);
     cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl << endl;
@@ -48,7 +48,7 @@ int main(){
     caloriesPerDay = getCaloriesForBreed(500, "terrier");
     cout << "Enter a meal and # of cups: " << endl;
     caloriesPerDay = remainingCalories("wet", 2.0, caloriesPerDay);
-    cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl;
+    cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl << endl;
 
     cout << "------------------UI Test 5-------------------" << endl;
     cout << "Enter a food type: " << endl;
@@ -58,6 +58,7 @@ int main(){
     else{
         cout << "Cheese is not safe for your pupper." << endl;
     }
+    cout << endl;
 
     cout << "------------------UI Test 6-------------------" << endl;
     cout << "Select a food type: " << endl;
@@ -71,6 +72,7 @@ int main(){
     else{
         cout << "Citrus is not safe for your pupper." << endl  << endl;
     }
+    cout << endl;
 
     cout << "Thank you for using DogDiet." << endl;
     return 0;
@@ -100,13 +102,13 @@ float getCaloriesForBreed(char* breed){
 }
 float getCaloriesForBreed(char choice){
     switch(choice){
-        case a:
+        case 'a':
             return(getCaloriesForBreed("labrador"));
-        case b:
+        case 'b':
             return(getCaloriesForBreed("terrier"));
-        case c:
+        case 'c':
             return(getCaloriesForBreed("retriever"));
-        case d:
+        case 'd':
             return(getCaloriesForBreed("mastiff"));
     }
     cerr << "That is not a recognized breed." << endl;
@@ -122,7 +124,7 @@ float getCaloriesForBreed(float guess, char* breed){
     if (calories > guess){
         cout << "You should feed you dog a little less" << endl;
     }
-    return calories.
+    return calories;
 }
 
 /******************************************************************
@@ -176,14 +178,25 @@ Side Effects: none
 
 bool isSafeToEat(char* food){
     //fill in function body
-    if (food = "chocolate" || food == "avacado" || food == "citrus" || food == "garlic")
+    if (food == "chocolate" || food == "avacado" || food == "citrus" || food == "garlic")
         return false;
     else
         return true;
 }
 bool isSafeToEat(char userChoice){
     //fill in function bod
-    switch(userChoice)
+    switch(userChoice){
+        case 'a':
+            return isSafeToEat("chocolate");
+        case 'b':
+            return isSafeToEat("avacado");
+        case 'c':
+            return isSafeToEat("citrus");
+        case 'd':
+            return isSafeToEat("garlic");
+        default:
+            return true;
+    }
 }
 bool isSafeToEat(char* food, char* breed){
     //Mastiffs do not like spicy food
