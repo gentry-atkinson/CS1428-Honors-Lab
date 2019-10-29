@@ -3,6 +3,7 @@
 //Lab 9
 
 #include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -17,7 +18,6 @@ float remainingCalories(char*, float, float);
 bool isSafeToEat(char*);
 bool isSafeToEat(char);
 bool isSafeToEat(char*, char*);
-
 
 int main(){
     float caloriesPerDay;
@@ -36,7 +36,7 @@ int main(){
     cout << "D) mastiff";
     caloriesPerDay = getCaloriesForBreed('B');
     cout << "Enter a meal size: " << endl;
-    caloriesPerDay = remainingCalories(200, caloriesPerDay);
+    caloriesPerDay = remainingCalories(200.0, caloriesPerDay);
     cout << "Your pupper needs " << caloriesPerDay << " more calories today." << endl << endl;
 
     cout << "------------------UI Test 3-------------------" << endl;
@@ -90,14 +90,39 @@ Return: an appropriate number of calories based on:
 Side Effects: print an error message for unsupported input
 ******************************************************************/
 float getCaloriesForBreed(char* breed){
-    //fill in function body
+    if (breed == "labrador") return 1875;
+    if (breed == "terrier") return 400;
+    if (breed == "mastiff") return 3000;
+    if (breed == "retriever") return 1400;
+
+    cerr << "That is not a recognized breed." << endl;
+    return 0;
 }
 float getCaloriesForBreed(char choice){
-    //fill in function body
+    switch(choice){
+        case a:
+            return(getCaloriesForBreed("labrador"));
+        case b:
+            return(getCaloriesForBreed("terrier"));
+        case c:
+            return(getCaloriesForBreed("retriever"));
+        case d:
+            return(getCaloriesForBreed("mastiff"));
+    }
+    cerr << "That is not a recognized breed." << endl;
+    return 0;
 }
 float getCaloriesForBreed(float guess, char* breed){
     //In addition to the normal return report to the user if
     //they are over or underfeeding their animal.
+    float calories = getCaloriesForBreed(breed);
+    if (calories < guess){
+        cout << "You should feed your dog more" << endl;
+    }
+    if (calories > guess){
+        cout << "You should feed you dog a little less" << endl;
+    }
+    return calories.
 }
 
 /******************************************************************
@@ -115,12 +140,23 @@ Side Effects: print an error message for unsupported input
 
 float remainingCalories(float caloriesFed, float totalCalories){
     //fill in function body
+    return totalCalories - caloriesFed;
 }
 float remainingCalories(char* foodType, float totalCalories){
     //fill in function body
+    if(foodType == "dry") return remainingCalories(200, totalCalories);
+    if(foodType == "wet") return remainingCalories(400, totalCalories);
+    if(foodType == "treat") return remainingCalories(500, totalCalories);
+    cerr << "That is not a recognized food tpe" << endl;
+    return 0;
 }
 float remainingCalories(char* foodType, float numberServings, float totalCalories){
     //fill in function body
+    if(foodType == "dry") return remainingCalories(200*numberServings, totalCalories);
+    if(foodType == "wet") return remainingCalories(400*numberServings, totalCalories);
+    if(foodType == "treat") return remainingCalories(500*numberServings, totalCalories);
+    cerr << "That is not a recognized food tpe" << endl;
+    return 0;
 }
 
 /******************************************************************
@@ -140,9 +176,14 @@ Side Effects: none
 
 bool isSafeToEat(char* food){
     //fill in function body
+    if (food = "chocolate" || food == "avacado" || food == "citrus" || food == "garlic")
+        return false;
+    else
+        return true;
 }
 bool isSafeToEat(char userChoice){
     //fill in function bod
+    switch(userChoice)
 }
 bool isSafeToEat(char* food, char* breed){
     //Mastiffs do not like spicy food
