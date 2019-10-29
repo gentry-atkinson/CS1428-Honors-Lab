@@ -202,4 +202,8 @@ bool isSafeToEat(char* food, char* breed){
     //Mastiffs do not like spicy food
     //if the breed is "mastiff", the "pepper" should also return false
     //otherwise the return is same as the base function
+    if(breed == "mastiff" && food == "pepper")
+        return false;
+    else
+        return isSafeToEat(food);
 }
