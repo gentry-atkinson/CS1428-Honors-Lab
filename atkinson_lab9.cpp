@@ -118,10 +118,10 @@ float getCaloriesForBreed(float guess, char* breed){
     //In addition to the normal return report to the user if
     //they are over or underfeeding their animal.
     float calories = getCaloriesForBreed(breed);
-    if (calories < guess){
+    if (calories > guess){
         cout << "You should feed your dog more" << endl;
     }
-    if (calories > guess){
+    if (calories < guess){
         cout << "You should feed you dog a little less" << endl;
     }
     return calories;
@@ -129,7 +129,7 @@ float getCaloriesForBreed(float guess, char* breed){
 
 /******************************************************************
 Remaining Calories
-These 3 overloaded function return the reaminging calories in a dog's daily diet
+These 3 overloaded function return the remaining calories in a dog's daily diet
 Try to re-use one function to write the other 2
 
 Parameters: a meal fed to the dog
