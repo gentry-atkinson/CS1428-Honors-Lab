@@ -4,10 +4,15 @@
 
 #include <iostream>
 
-const int sortedList = {1, 3, 6, 8, 9, 11, 15, 17, 20, 23, 27, 29, 31, 35, 36, 38, 41, 50};
+using namespace std;
+
+const int sortedList[] = {1, 3, 6, 8, 9, 11, 15, 17, 20, 23, 27, 29, 31, 35, 36, 38, 41, 50};
 const int sortedList_size = 18;
-const int unsortedList = {22, 3, 18, 35, 4, 44, 1, 21, 9, 17, 16, 2, 50, 6, 14, 8, 20, 47};
+const int unsortedList[] = {22, 3, 18, 35, 4, 44, 1, 21, 9, 17, 16, 2, 50, 6, 14, 8, 20, 47};
 const int unsortedList_size = 18;
+
+bool binarySearch(int, int, int, const int[]);
+bool sequentialSearch(int, int, int, const int[]);
 
 int main(){
 
@@ -27,7 +32,8 @@ bool binarySearch(int searchVal, int lowerBound, int upperBound, const int searc
         return /*fill in an appropriate return*/;
     }
     if (searchArray[(lowerBound+upperBound)/2] /*fill in a comparison*/ searchVal){
-        return binarySearch(searchVal, (lowerBound+upperBound)/2, upperBound, searchArray);
+        return binarySearch(searchVal, (lowerBound+upperBound)/2 + 1, upperBound, searchArray);
+    }
     if (searchArray[(lowerBound+upperBound)/2] /*fill in a comparison*/ searchVal){
         return binarySearch(searchVal, lowerBound, (lowerBound+upperBound)/2, searchArray);
     }
@@ -38,7 +44,7 @@ bool binarySearch(int searchVal, int lowerBound, int upperBound, const int searc
 //Inputs: an int search value, an int search index, an int array size, and an array of ints
 //Return: true if the search val is in the array, false otherwise
 //Side Effects: none
-bool sequntialSearch(int searchVal, int searchIndex, int arraySize, int searchArray[]){
+bool sequentialSearch(int searchVal, int searchIndex, int arraySize, const int searchArray[]){
     //Base Case 1: the searchIndex is pointing to a value equal to searchVal
     //Fill in an if statement with a return for this case
 
