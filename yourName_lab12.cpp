@@ -35,7 +35,7 @@ bool binarySearch(int searchVal, int lowerBound, int upperBound, const int searc
         return binarySearch(searchVal, (lowerBound+upperBound)/2 + 1, upperBound, searchArray);
     }
     if (searchArray[(lowerBound+upperBound)/2] /*fill in a comparison*/ searchVal){
-        return binarySearch(searchVal, lowerBound, (lowerBound+upperBound)/2 -1, searchArray);
+        return binarySearch(searchVal, lowerBound, (lowerBound+upperBound)/2, searchArray);
     }
 }
 
